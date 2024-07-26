@@ -7,23 +7,14 @@ class Database:
 
     async def connect(self):
         self.pool = await asyncpg.create_pool(
-            host=DB_HOST,
-            port=DB_PORT,
             user=DB_USER,
             password=DB_PASSWORD,
             database=DB_NAME,
+            host=DB_HOST,
+            port=DB_PORT
         )
 
     async def close(self):
         await self.pool.close()
 
 db = Database()
-
-
-
-# CREATE TABLE users (
-#     user_id BIGINT PRIMARY KEY,
-#     username TEXT,
-#     drive_folder_id TEXT,
-#     service_account_file TEXT
-# );
