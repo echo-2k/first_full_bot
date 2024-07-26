@@ -3,7 +3,7 @@ from aiogram import Bot, Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from models import db
 from config import BOT_TOKEN
-from handlers import register_handlers_start, register_handlers_user, register_handlers_file, register_handlers_shop
+from handlers import register_handlers_start, register_handlers_user, register_handlers_file, register_handlers_shop, register_handlers_admin
 
 async def main():
     bot = Bot(token=BOT_TOKEN)
@@ -15,6 +15,7 @@ async def main():
     register_handlers_user(dp)
     register_handlers_file(dp)
     register_handlers_shop(dp)
+    register_handlers_admin(dp)
 
     try:
         await dp.start_polling()
