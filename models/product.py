@@ -12,14 +12,9 @@ class Product:
     @staticmethod
     async def get_all_products():
         async with db.pool.acquire() as connection:
-            return await connection.fetch(
-                "SELECT * FROM products"
-            )
+            return await connection.fetch("SELECT * FROM products")
 
     @staticmethod
     async def get_product(product_id: int):
         async with db.pool.acquire() as connection:
-            return await connection.fetchrow(
-                "SELECT * FROM products WHERE id = $1",
-                product_id
-            )
+            return await connection.fetchrow("SELECT * FROM products WHERE id = $1", product_id)
