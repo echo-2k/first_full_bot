@@ -1,5 +1,5 @@
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -13,6 +13,6 @@ SERVICE_ACCOUNT_FILE = os.getenv("SERVICE_ACCOUNT_FILE")
 FOLDER_ID = os.getenv("FOLDER_ID")
 ARCHIVE_PASSWORD = os.getenv("ARCHIVE_PASSWORD")
 CHAT_ID = os.getenv("CHAT_ID")
-FILES_DIRECTORY = os.getenv("FILES_DIRECTORY")
-ARCHIVE_NAME = os.getenv("ARCHIVE_NAME")
+FILES_DIRECTORY = os.getenv("FILES_DIRECTORY", "./downloads")
+ARCHIVE_NAME = os.getenv("ARCHIVE_NAME", "files.zip")
 CRYPTO_WALLETS = os.getenv("CRYPTO_WALLETS")
